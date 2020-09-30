@@ -1,12 +1,30 @@
+include ../mixins/message
+
 doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    //- meta(http-equiv="Content-Security-Policy", content="")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css")
     link(href="/static/main.css", rel="stylesheet")
     title #{pageTitle} | #{siteName}
   body
+    if messages.error
+      +message({
+          type:'error',
+          text:messages.error
+      })
+    else if messages.info
+      +message({
+          type:'info',
+          text:messages.info
+      })
+    else if messages.success
+      +message({
+          type:'success',
+          text:messages.success
+      })
     include ../partials/_header
     main
       block content

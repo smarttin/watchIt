@@ -1,6 +1,4 @@
 import '../scss/styles.scss';
-
-const things = async () => {
-  console.log('things');
-}
-things()
+import './videoPlayer';
+import './videoRecorder';
+import './addComment';

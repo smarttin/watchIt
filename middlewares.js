@@ -9,7 +9,10 @@ export const localsMiddleware = (req, res, next) => {
 }
 
 const multerVideo = multer({ dest: "uploads/videos/"});
+const multerAvatar = multer({ dest: "uploads/avatar/"});
+
 export const uploadVideo = multerVideo.single('videoFile');
+export const uploadAvatar = multerAvatar.single("avatar");
 
 export const onlyPublic = (req, res, next) => {
   if (req.user) {
